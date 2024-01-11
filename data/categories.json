@@ -1,0 +1,14 @@
+[
+    {
+        "categoryId": "games",
+        "category": "Juegos"
+    },
+    {
+        "categoryId": "console",
+        "category": "Consolas"
+    },
+    {
+        "categoryId": "component",
+        "category": "Periféricos"
+    }
+]
