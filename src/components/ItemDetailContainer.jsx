@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { formateaPesos } from "../utils/format.js";
+import { useCartContext } from "./CartContext.jsx";
+
 export default function ItemDetailContainer() {
     console.log("debug-ItemDetailContainer--init");
 
+    const {addProduct} = useCartContext();
     let [item, setItem] = useState({});
+    let [quantity, setQuantity] = useState(0);
 
     let { productId } = useParams();
 
@@ -34,6 +38,23 @@ export default function ItemDetailContainer() {
         return () => controller.abort();
     }, [productId]);
 
+    const addTemporalProduct       = () => {
+        if(quantity<item.stock){
+            setQuantity(++quantity)
+        }        
+    };
+
+    const removeTemporalProduct    = () => {
+        if(quantity>0){
+            setQuantity(--quantity)
+        }
+    };
+    const addProductToCart = () => {
+        const cartItem = {...item};
+        addProduct(cartItem, quantity);
+        setQuantity(0);
+    };
+
     return (
         <div className="item--layout">
             <div className="item--detail-box">
@@ -51,22 +72,54 @@ export default function ItemDetailContainer() {
                 <div className="item--detail item--description">
                     {item.description}
                 </div>
-                <div className="item--detail  item--count">
-                    <label htmlFor="">Agregados:&nbsp;</label>
-                    <span className="item--count-number">0</span>
+                <div className="item--detail item--count">
+                    {/* <label htmlFor="">Agregados:&nbsp;</label>
+                    <span className="item--count-number">0</span> */}
+                    
+                    {/* &nbsp;{item.quantity || 0} agregado
+                    {item.quantity > 0 ? "s" : ""} de {item.stock} disponibles */}
                 </div>
-                <div className="item--detail item--options">
-                    <button className="item--btn item--btn-add">
-                        <i className="fa fa-cart-plus" aria-hidden="true"></i>
-                        Agregar
-                    </button>
-                    <button className="item--btn item--btn-del">
-                        <i
-                            className="fa fa-cart-arrow-down"
-                            aria-hidden="true"
-                        ></i>
-                        Quitar
-                    </button>
+                <div className="item--detail item--options">                    
+                    <div className="item--btn-box">                    
+                        <table className="item--count-table">
+                            <tbody>
+                                <tr>
+                                    <td className="item--count-btn">
+                                        <button className="btn-count" onClick={addTemporalProduct}>
+                                            <i className="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    <td className="item--counter" >
+                                        {quantity}
+                                    </td>
+                                    <td className="item--count-btn">
+                                        <button className="btn-count" onClick={removeTemporalProduct}>
+                                            <i className="fa fa-minus" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    {quantity>0?(
+                                        <td className="item--total" >
+                                        {formateaPesos(parseInt(item.price)*quantity)}
+                                        </td>
+                                    ):(<td></td>)}                                
+                                </tr>
+                            </tbody>
+                        </table>
+                        Disponibles {item.stock}
+                    </div>
+                    <div className="item--btn-box">
+                        {quantity>0?(
+                            <button
+                                className="item--btn item--btn-add"
+                                onClick={addProductToCart}>
+                                <i className="fa fa-cart-plus" aria-hidden="true"></i>
+                                Agregar {quantity}</button>)
+                            : (
+                                <span></span>
+                            )
+                        }
+                    </div>
+                    
                 </div>
             </div>
         </div>

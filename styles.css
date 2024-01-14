@@ -1185,4 +1185,73 @@ div.prompt .prompt__buttons #prompt_cancel {
   text-align: center;
   font-size: 2.5rem;
   font-family: "Orbitron";
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.cart-content{
+  background-color: #bbb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+
+}
+.cart-table{
+  /* border: 1px solid black; */
+  font-family: "Jura", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3px;
+}
+.cart-table thead tr th, .cart-table tfoot tr td{
+  border: 1px solid #000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.cart-table tbody tr td{
+  border: 1px solid #000;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px;
+}
+.cart-table tfoot tr td{
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.item--count-table{
+  
+}
+.item--count-table td{
+  /* border: 1px solid red; */
+  /* width: 60px; */
+  text-align: center;
+}
+.item--count-btn{
+  width: 100px;
+}
+.item--counter{
+  /* width: 150px; */
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid black;
+  user-select: none;
+}
+
+.btn-count{
+  font-size: 2rem;
+  opacity: 1;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.btn-count:active {
+  background-color: #ccc;
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
+.price-cell{
+  text-align: right;
 }

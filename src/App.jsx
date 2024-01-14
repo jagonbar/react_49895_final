@@ -1,12 +1,14 @@
 import "./App.css";
-import NavBar from "./components/Navbar.jsx";
-import ItemListContainer from "./components/ItemListContainer.jsx";
-import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
-import Footer from "./components/Footer.jsx";
-import { ContactForm } from "./components/ContactForm.jsx";
-import Error from "./components/Error.jsx";
+import NavBar                           from "./components/Navbar.jsx";
+import ItemListContainer                from "./components/ItemListContainer.jsx";
+import ItemDetailContainer              from "./components/ItemDetailContainer.jsx";
+import Footer                           from "./components/Footer.jsx";
+import Cart                             from "./components/Cart.jsx";
+import { ContactForm }                  from "./components/ContactForm.jsx";
+import Error                            from "./components/Error.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState }          from "react";
+import { CartProvider }                 from "./components/CartContext.jsx";
 
 const titlesList = {
     "/": "Tenemos todo para que seas el mejor GAMER",
@@ -32,6 +34,7 @@ function App() {
     return (
         <>
             <BrowserRouter>
+            <CartProvider>
                 <NavBar />
                 <main>
                     <Routes>
@@ -65,11 +68,16 @@ function App() {
                             path="/contact"
                             element={<ContactForm />}
                         />
+                        <Route
+                            exact
+                            path="/cart"
+                            element={<Cart />}
+                        />
                         <Route path="*" element={<Error />} />
                     </Routes>
                 </main>
+            </CartProvider>
             </BrowserRouter>
-
             <Footer />
         </>
     );
