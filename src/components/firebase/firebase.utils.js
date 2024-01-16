@@ -39,4 +39,16 @@ export const queryDocument = async (collectionName, documentId) => {
     const docSnapshot = await getDoc(d);
     return docSnapshot.data();
 }
-// export default queryCollection
+
+
+/*
+
+export const addDocument = async (order)=>{
+    const db = getFirestore();
+    const ordersCollection = collection(db, 'orders');
+    const id = await addDoc(ordersCollection, order)
+    console.log({id})
+    return id
+}
+
+*/
