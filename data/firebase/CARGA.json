@@ -1,0 +1,86 @@
+{
+  "__collections__": {
+    "product": {
+      "4c6e30ac-6c5d-43ae-9ba4-aa98bfa09565": {
+        "productId": 1,
+        "price": 69990,
+        "description": "¡Araña y trepa a través de docenas de coloridos niveles! Multiplica la diversión al formar un equipo o compitiendo con tus amigos mediante el juego local* o en línea** para alcanzar el objetivo de cada etapa. ¡Trabajen juntos para explorar y descubrir los objetos coleccionables, o compitan por la corona obteniendo la puntuación más alta, creando así un frenesí amistoso! Mario y sus amigos pueden utilizar una variedad de mejoras, como la supercampana que otorga habilidades felinas como trepar y arañar. ¡Aplica las mejoras, completa los niveles y llévate la corona!",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/game_mario.jpg",
+        "productName": "Mario 3D",
+        "categoryId": "games",
+        "__collections__": {}
+      },
+      "261f04ac-24ed-44f8-9fbd-0431471356e8": {
+        "productId": 2,
+        "price": "19990",
+        "description": "Después de nueve años de los eventos de MGSV: Ground Zeroes y la caída de la Mother Base, Snake, también conocido como Big Boss, despierta de un coma de casi una década.",
+        "stock": 15,
+        "imgSrc": "/multimedia/img/game_metalgear.jpg",
+        "productName": "Metal Gear",
+        "categoryId": "games",
+        "__collections__": {}
+      },
+      "98bef22d-5e51-49c6-82c8-70450f17e4d7": {
+        "productId": 3,
+        "price": 59990,
+        "description": "Disfruta del épico final del clan Mishima y descubre los motivos detrás de cada uno de los pasos de esta batalla interminable. TEKKEN 7, creado con Unreal Engine 4, ofrece espectaculares batallas con cinemáticas narrativas e intensos duelos para disfrutar con amigos y rivales gracias a las nuevas mecánicas de lucha.",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/game_tekken7.jpg",
+        "productName": "Tekken 7",
+        "categoryId": "games",
+        "__collections__": {}
+      },
+      "b4277196-3830-440f-9618-574ee91fb10c": {
+        "productId": 4,
+        "price": 39990,
+        "description": "¡Tu aventura Horizon por excelencia te espera! Explora los dinámicos paisajes de mundo abierto y en constante evolución de México con una acción de conducción ilimitada y divertida en cientos de los mejores autos del mundo.",
+        "stock": 20,
+        "imgSrc": "/multimedia/img/game_forza.jpg",
+        "productName": "Forza Horizon 5",
+        "categoryId": "games",
+        "__collections__": {}
+      },
+      "a287c63d-908d-4379-8043-470e89ce8bd6": {
+        "productId": 13,
+        "price": 194990,
+        "description": "Crea tu propia isla paradisíaca mientras viajas o en tu rincón especial con esta consola Nintendo Switch™ Lite con temática Aloha de Timmy y Tommy. El sistema presenta un sereno color turquesa, un patrón de hojas blancas en la parte posterior y un lindo diseño de hojas en el frente, inspirado en la serie Animal Crossing.",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/console_switch_turquesa.jpg",
+        "productName": "Consola Nintendo Switch Lite Turquoise + Animal Crossing",
+        "categoryId": "console",
+        "__collections__": {}
+      },
+      "c5c7d399-3e3a-4118-a141-7e8cf674371c": {
+        "productId": 14,
+        "price": 204990,
+        "description": "Este paquete incluye todo lo que necesitas para comenzar tus aventuras de Super Mario™, incluyendo una consola Nintendo Switch™ con controles Joy-Con™ rojo neón y azul neón. Además, disfruta de un valor añadido* de USD 68.00 gracias a un código de descarga para el juego Mario Kart™ 8 Deluxe y una suscripción individual por 3 meses a Nintendo Switch Online. Puedes iniciar competencias multijugador en cuanto abras la caja; solo comparte un control Joy-Con con un amigo para jugar juntos en la misma consola. O adquiere más controles (se venden por separado) y diviértete hasta con 3 jugadores más.",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/console_nintendo_switch_v2_mario_kart_8_deluxe.jpg",
+        "productName": "Consola Nintendo Switch V2 + Mario Kart 8 Deluxe",
+        "categoryId": "console",
+        "__collections__": {}
+      },
+      "ba121cd4-a99e-44e5-ab42-268dad4c5c81": {
+        "productId": 18,
+        "price": 64990,
+        "description": "Teclado Mecánico Corsair K60 RGB Pro, Switch Cherry MX Low Profile Speed, Negro\nProgramable con el software CORSAIR iCUE\nControl de iluminación RGB viva y dinámica, con una\nsofisticada programación de macros y la posibilidad de\nsincronizar toda la iluminación del sistema, gracias a su\ncompatibilidad con periféricos, refrigeradores, ventiladores\ny otros productos de CORSAIR. Disfrute de un nivel de\ninmersión sin precedentes al jugar a juegos con integración\nde iCUE, puesto que la iluminación RGB reacciona\ndinámicamente ante las acciones y eventos del juego en\ntiempo real",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/component_corsair_k60.jpg",
+        "productName": "Teclado Mecánico Corsair K60 RGB Pro, Switch Cherry MX Low Profile Speed, Negro\n",
+        "categoryId": "component",
+        "__collections__": {}
+      },
+      "57d18f76-c012-4e91-af8e-c57ba8f51799": {
+        "productId": 19,
+        "price": 39990,
+        "description": "Ganar lo es todo\nDesarrollado conjuntamente con los principales jugadores de deportes electrónicos competitivos\ndel mundo, cada aspecto del Arctis Prime fue diseñado meticulosamente con un solo objetivo en\nmente: la victoria.",
+        "stock": 10,
+        "imgSrc": "/multimedia/img/component_audifonos_gamer_steel_series_arctis_prime.jpg",
+        "productName": "Audífonos Gamer SteelSeries Arctis Prime, Over-Ear, Compatible con PC y Consolas, Negro",
+        "categoryId": "component",
+        "__collections__": {}
+      }
+    }
+  }
+}

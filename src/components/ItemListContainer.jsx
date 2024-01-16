@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Item                    from "./Item.jsx";
 import { useParams }           from "react-router-dom";
 import { formateaPesos }       from "../utils/format.js";
-
+import {queryCollection}       from "./firebase/firebase.utils.js";
 export default function ItemListContainer({changeCategory, greeting }) {
     // console.log("debug-ItemListContainer");
 
@@ -19,29 +19,34 @@ console.log({changeCategory})
     // useEffect
     useEffect(() => {
         // console.log("debug-ItemListContainer--useEffect");
-
-        /*(1)*/
-        const controller = new AbortController();
-        const { signal } = controller;
-
-        /*(2)*/
-        let fetchProducts = async () => {
-            let data = await fetch("/data/products.json", { signal });
-            // let data     = await fetch("/data/products.json");
-            let products = await data.json();
-
-            let productsCategory = (categoryId !== undefined)? products.filter((p) => p.categoryId == categoryId): products;
-            
-            categoryId = (categoryId === undefined)?"/":categoryId;
-
-            changeCategory(categoryId)
-
-            setItems(productsCategory);
-        };
+        let fetchProducts = async () => {   
+            let where = categoryId !== undefined?["categoryId", "==", categoryId]:[]         
+            const productos = await queryCollection("product", where);
+            console.log({productos})
+            setItems(productos);
+        }
         fetchProducts();
+        /*(1)*/
+        // const controller = new AbortController();
+        // const { signal } = controller;
 
-        // Si se desmonta el componente, abortamos la petición
-        return () => controller.abort();
+        // /*(2)*/
+        // let fetchProducts = async () => {
+        //     let data = await fetch("/data/products.json", { signal });
+        //     let products = await data.json();
+
+        //     let productsCategory = (categoryId !== undefined)? products.filter((p) => p.categoryId == categoryId): products;
+            
+        //     categoryId = (categoryId === undefined)?"/":categoryId;
+
+        //     changeCategory(categoryId)
+
+        //     setItems(productsCategory);
+        // };
+        // fetchProducts();
+
+        // // Si se desmonta el componente, abortamos la petición
+        // return () => controller.abort();
     }, [categoryId]);
 
     let itemParsed = [];

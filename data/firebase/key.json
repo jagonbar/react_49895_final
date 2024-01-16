@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "powergames-coder-49895",
+  "private_key_id": "1ef3557500d10a30aba834be5c786c0973464faf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCeY6AQ2gchFU98\n+HrbMyfqtKOTbxrHUK/afVvZFAQWsgRG6rR/sOrkE9XKZVty3jXIiQ5SeijvfVHO\n4rv2gMpsx53XyQkQhx3+orYuqwjxa0jHW1jF+VpaoLAJfyaR4DmVSsIczccGXBU4\nS0S7zEkeic4WmrnltnnKEEy2F0OO910Fvc6LXbUi6phRLOGAiMWk8yAX/y4dv1OM\nfC7/BbvJjhjGxzuWlskjX1N2GqAUzHu6wMo8P3+pc1Py7RMSPXjs5906WwOSMGE4\nTmc0rtezc/IquWsCfeVAJ2uj34wrfTXJZ5jMThWSjChYmrDhMBh5sFL9I+FUXRb/\nYFkMvFC5AgMBAAECggEACD+VKMYrtd/12An2pifLH6XfYACTnNG7RdNQNlpx4oI9\nxuPlJ3szGFKXcuciQvzcCA8UepUz61HMsgSh+5ZLibrN90ACo48YdvRYZetwZbt9\ngZ2devM0xBlatt9y/5cDkZAnYLfaAHSBu4EL9iFIM4ffxX15n6aysU7LN+gpPjzX\nXg449RqhKL2kdJJovYAJ4YoRGpiJs9chIdabx6b+ZTDpo31rvrMrnD10ZI+PUv8k\nPA39WAUxiPeR5VBV3Lt9efM+2h0y3NV4LV970kTMD7f5FyMkz4Wxnj1ZB1hi8FuQ\nFgy2x2q13wEQGuNEGAoUGEgzi6ir8vPve11QBUvxcwKBgQDMQFVtoJdxBJji2C1p\nWwftWbSTV66EZ6xL7anYYz2Nmg2ku9jTGwUHksMXimwQKhpeQrdknLrWg3Scpsnh\nILaWHPFHkXom3XPa2FWXz8fONSK80PdDkVL65RI10UHKe8KktsPqScvh5qGFOENr\n8EC3iB7V/t8Iteb14ytxEynNgwKBgQDGhLB/kjMUX2qeKppzeT3vBiUAuRuY1clQ\nqhrYlkxd7VicjOqoIYHSnG128E6J/bRk1DfH28sJEoKIcUUsWrqnx+uwm0s52xhV\no7WQGfGCZL2rHTV98ICtXLb6uOtvkBzPrxsENsNlYLaCta0I3IUSu5CgR1CsObVo\neZhgR8iwEwKBgQCqKk8B7nE9L19QXlo3FCgejkXrG3nBxb295FtEdCmr91S2kemq\ntzARhywSSLiPHwSo01yG7iya2xokCLDYZrC3j5VU0ta52nXTNbjZqboFCi/OrynR\nmRlQ/deWDqiJUWJwZ/QBFUpPAh4/JwjEvHyuazGFh7m5QBMTeBeRNS32kQKBgAlL\nFOgj8/g0L02QOQLG3jteUkUiZURWXcJE9FTHVHPhNJC/mAye5PDzGbzDqymSkutV\nc/cLNwoJr8qrYs2cwbgxB7uQyYi/1PfNXiaM0F2GUcq851Ap/hwfhwFdvsfOO0sN\nq3obBjKswF6GGr+bcy9ZUH/wVrp5SSDG8HcxZRe5AoGANzW4QJ2Su6UkO9qh+Qcj\nfANiGYR7lc/IEvkQHsv8WcmrLw0xD/ogp1Po2/GqFiHNZ/CM8vaNJnYww4oFYmrV\nffWhkhqHlpKuKOUAca5JxIS4TOPtw5O/sF8iYhnDddIjOLHgss9LrQji17LwUXwy\nKbPWQc/kB92pJzl3qEk6014=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-djq7g@powergames-coder-49895.iam.gserviceaccount.com",
+  "client_id": "112786576009554539240",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-djq7g%40powergames-coder-49895.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
