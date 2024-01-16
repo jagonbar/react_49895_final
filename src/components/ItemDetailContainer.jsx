@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { formateaPesos } from "../utils/format.js";
 import { useCartContext } from "./CartContext.jsx";
-
+import { queryDocument } from "./firebase/firebase.utils.js";
 export default function ItemDetailContainer() {
     console.log("debug-ItemDetailContainer--init");
 
@@ -15,27 +15,34 @@ export default function ItemDetailContainer() {
     // useEffect
     useEffect(() => {
         console.log("debug-ItemDetailContainer--useEffect");
+        console.log({productId})   
 
-        const controller = new AbortController();
-        const { signal } = controller;
-
-        let fetchProduct = async () => {
-            let data = await fetch("/data/products.json", { signal });
-            let products = await data.json();
-            console.table(products);
-            let product = products.find(
-                (p) => p.productId == parseInt(productId)
-            );
-
-            console.log(
-                "-------------------------------------------------------------------"
-            );
+        let fetchProduct = async() => {
+            const product = await queryDocument('product',productId)
             console.log({ product });
             setItem(product);
-        };
+        }
         fetchProduct();
+        // const controller = new AbortController();
+        // const { signal } = controller;
 
-        return () => controller.abort();
+        // let fetchProduct = async () => {
+        //     let data = await fetch("/data/products.json", { signal });
+        //     let products = await data.json();
+        //     console.table(products);
+        //     let product = products.find(
+        //         (p) => p.productId == parseInt(productId)
+        //     );
+
+        //     console.log(
+        //         "-------------------------------------------------------------------"
+        //     );
+        //     console.log({ product });
+        //     setItem(product);
+        // };
+        // fetchProduct();
+
+        // return () => controller.abort();
     }, [productId]);
 
     const addTemporalProduct       = () => {

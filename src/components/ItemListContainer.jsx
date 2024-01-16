@@ -61,12 +61,12 @@ console.log({changeCategory})
         // console.log({dataset})
         itemParsed.push(
             <Item
-                key={item.productId}
+                key={item.id}
                 nombre_juego={item.productName}
                 imagen={item.imgSrc}
                 precio={formateaPesos(parseInt(item.price))}
                 descripcion={item.description}
-                id={item.productId}
+                id={item.id}
                 data={dataset}
             />
         );
