@@ -32,6 +32,9 @@ const Cart = () => {
     }
     return(
         <div className="cart-content">
+            
+            <Link to="/checkout">Realizar compra</Link>
+
             <table className="cart-table">
                 <thead>
                     <tr>
