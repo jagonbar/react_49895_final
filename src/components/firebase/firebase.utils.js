@@ -1,6 +1,6 @@
 import './firebase.config.js'
 
-import {getFirestore, collection, getDocs, getDoc, doc, query, where} from "firebase/firestore";
+import {getFirestore, collection, getDocs, getDoc, doc, query, where, addDoc} from "firebase/firestore";
 /**
  * Recupera documentos de una colección de Firestore basados en una consulta.
  *
@@ -41,14 +41,19 @@ export const queryDocument = async (collectionName, documentId) => {
 }
 
 
-/*
 
-export const addDocument = async (order)=>{
+/**
+ * Agrega un documento a la colección especificada en Firestore.
+ *
+ * @param {Object} newDocument - El documento que se va a agregar.
+ * @param {string} collectionName - El nombre de la colección donde se va a agregar el documento.
+ * @return {string} El ID del nuevo documento agregado.
+ */
+export const addDocument = async (newDocument, collectionName)=>{    
     const db = getFirestore();
-    const ordersCollection = collection(db, 'orders');
-    const id = await addDoc(ordersCollection, order)
-    console.log({id})
-    return id
+    const ordersCollection = collection(db, collectionName);
+    const d = await addDoc(ordersCollection, newDocument)
+    console.log("debug",d.id)
+    return d.id
 }
 
-*/

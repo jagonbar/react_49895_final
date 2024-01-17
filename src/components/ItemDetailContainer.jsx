@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { formateaPesos } from "../utils/format.js";
 import { useCartContext } from "./CartContext.jsx";
-import { queryDocument } from "./firebase/firebase.utils.js";
+import { queryDocument, addDocument } from "./firebase/firebase.utils.js";
 export default function ItemDetailContainer() {
     console.log("debug-ItemDetailContainer--init");
 
@@ -124,7 +124,7 @@ export default function ItemDetailContainer() {
                             : (
                                 <span></span>
                             )
-                        }
+                        }                        
                     </div>
                     
                 </div>

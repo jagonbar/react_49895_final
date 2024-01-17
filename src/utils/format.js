@@ -7,3 +7,17 @@ export function formateaMiles(x) {
 export function formateaPesos(x){
     return "$ "+formateaMiles(x)
 }
+
+export function validaTextoIngresado(x){
+    const validacion =(txt)=>{
+        if(txt.trim()==="") return false
+        return true
+    }
+
+    if(Array.isArray(x)){
+        return x.every(validacion)
+    }else{
+        return validacion(x)
+    }
+
+}

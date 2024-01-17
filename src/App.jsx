@@ -4,6 +4,7 @@ import ItemListContainer                from "./components/ItemListContainer.jsx
 import ItemDetailContainer              from "./components/ItemDetailContainer.jsx";
 import Footer                           from "./components/Footer.jsx";
 import Cart                             from "./components/Cart.jsx";
+import Checkout                         from "./components/Checkout.jsx";
 import { ContactForm }                  from "./components/ContactForm.jsx";
 import Error                            from "./components/Error.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -72,6 +73,11 @@ function App() {
                             exact
                             path="/cart"
                             element={<Cart />}
+                        />
+                        <Route
+                            exact
+                            path="/checkout"
+                            element={<Checkout />}
                         />
                         <Route path="*" element={<Error />} />
                     </Routes>

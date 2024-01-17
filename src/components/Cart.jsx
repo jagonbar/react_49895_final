@@ -42,18 +42,7 @@ const Cart = () => {
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {/* {cart.map((item, index) => (
-                                                <CartItem
-                                                    key={item.productId}
-                                                    itemIndex={index+1}
-                                                    itemName={item.productName}
-                                                    itemPrice={item.price}
-                                                    itemQuantity={item.quantity}
-                                                    itemTotal={item.price * item.quantity}
-                                                />                                            
-                        ))
-                    } */}
+                <tbody>                    
                     {itemCart}
                 </tbody>
                 <tfoot>
