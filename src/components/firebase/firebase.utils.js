@@ -49,7 +49,10 @@ export const queryDocument = async (collectionName, documentId) => {
  * @param {string} collectionName - El nombre de la colección donde se va a agregar el documento.
  * @return {string} El ID del nuevo documento agregado.
  */
-export const addDocument = async (newDocument, collectionName)=>{    
+export const addDocument = async (newDocument, collectionName)=>{  
+    console.log("addDocument")
+    console.log({newDocument})
+    console.log({collectionName})  
     const db = getFirestore();
     const ordersCollection = collection(db, collectionName);
     const d = await addDoc(ordersCollection, newDocument)

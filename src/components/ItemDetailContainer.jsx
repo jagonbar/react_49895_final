@@ -19,8 +19,8 @@ export default function ItemDetailContainer() {
 
         let fetchProduct = async() => {
             const product = await queryDocument('product',productId)
-            console.log({ product });
-            setItem(product);
+            console.log({id:productId,...product});
+            setItem({id:productId,...product});
         }
         fetchProduct();
         // const controller = new AbortController();

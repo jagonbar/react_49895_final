@@ -10,7 +10,8 @@ export function formateaPesos(x){
 
 export function validaTextoIngresado(x){
     const validacion =(txt)=>{
-        if(txt.trim()==="") return false
+        
+        if(txt.toString().trim()==="") return false
         return true
     }
 

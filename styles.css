@@ -1260,7 +1260,7 @@ div.prompt .prompt__buttons #prompt_cancel {
   font-family: "Orbitron", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-style: solid;
   border-width: 1px;
-  border-radius: 3px;
+  border-radius: 10px;
   display     : block;
   font-size   : 1.5rem;
   font-weight : bold;

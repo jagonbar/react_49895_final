@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useCartContext } from "./CartContext";
 import { Link } from "react-router-dom";
+import { addDocument } from "./firebase/firebase.utils.js";
 
 import { validaTextoIngresado } from "../utils/format.js";
 const Checkout = () => {
-    const { cart, totalPrice, totalProducts } = useCartContext();
+    const { cart, totalPrice, totalProducts, clearCart } = useCartContext();
 
     const [post, setPost] = useState(false);
     const [nombre, setNombre] = useState("");
@@ -25,8 +26,17 @@ const Checkout = () => {
         );
     }
 
+    const isOrderSave =()=>{
+        console.log("isOrderSave",{idNewOrder, OKNewOrder})
+        
+        console.log(validaTextoIngresado(idNewOrder))
+        return validaTextoIngresado(idNewOrder)
+    }
     const doError = (txtError) => {
-        console.log("error", { txtError });
+        console.log("doError error", { txtError });
+        
+        console.log(validaTextoIngresado(txtError))
+
         setError([validaTextoIngresado(txtError), txtError]);
     };
     const hayError = () => {
@@ -35,25 +45,27 @@ const Checkout = () => {
     const getError = () => {
         return error[1];
     };
-    const doSubmit = () => {
+    const doSubmit = async (e) => {
         console.log("doSubmit");
 
         setPost(true); //registro que se hizo un post para considerar error de validaciones
 
-        if (doValidation()) {
-            doCheckout();
+        const validacion = doValidation()
+        if (validacion) {
+            console.log("ok validation");
+            doCheckout(e);
         }
     };
     const doValidation = () => {
         console.log("doValidation");
         const d = document;
-        const txtNombre = d.getElementById("txtNombre").value;
-        const txtApellido = d.getElementById("txtApellido").value;
-        const txtEmail = d.getElementById("txtEmail").value;
-        const txtEmailConfirmacion = d.getElementById(
-            "txtEmailConfirmacion"
-        ).value;
-        const txtFono = d.getElementById("txtFono").value;
+        const txtNombre            = d.getElementById("txtNombre").value;
+        const txtApellido          = d.getElementById("txtApellido").value;
+        const txtEmail             = d.getElementById("txtEmail").value;
+        const txtEmailConfirmacion = d.getElementById("txtEmailConfirmacion").value;
+        const txtFono              = d.getElementById("txtFono").value;
+
+console.log({txtNombre},{txtApellido},{txtEmail},{txtEmailConfirmacion},{txtFono})
 
         setNombre(txtNombre);
         setApellido(txtApellido);
@@ -61,6 +73,7 @@ const Checkout = () => {
         setEmailConfirmacion(txtEmailConfirmacion);
         setFono(txtFono);
 
+        console.log("antes de Debe completar todos los campos");
         if (
             !validaTextoIngresado([
                 txtNombre,
@@ -73,20 +86,26 @@ const Checkout = () => {
             doError("Debe completar todos los campos");
             return false; //Fin. No hay checkout
         }
-
+        
+        console.log("antes de No coincide email");
         if (txtEmail !== txtEmailConfirmacion) {
+            console.log("antes de No coincide email");
             doError("Email no coincide");
             return false; //Fin. No hay checkout
         }
         doError("");
 
+        console.log("pasaron todas las validaciones");
+
         //OK: Ya pasaron todas las validaciones
         return true;
     };
     const doCheckout = async (event) => {
+        console.log("doCheckout");
         event.preventDefault();
 
-        try {
+        // try {
+            console.log("antes de addDocument");
             const cliente = {
                 nombre,
                 apellido,
@@ -108,24 +127,36 @@ const Checkout = () => {
                 fechaRegistro: new Date(),
             };
             const newId = await addDocument(newOrder, "orders");
-
+            console.log("newId recibido",{ newId });
             setIdNewOrder(newId); //idNewOrder
-            setOKNewOrder(true);
-        } catch (errorMessage) {
-            doError(errorMessage);
-        }
+            console.log("antes de limpiar carro")
+            // clearCart();
+            // setNombre("");
+            // setApellido("");
+            // setEmail("");
+            // setEmailConfirmacion("");
+            // setFono("");
+            console.log("despues de states limpiados");
+
+
+            // setOKNewOrder(true);
+        // } catch (errorObj) {
+        //     console.log({errorObj})
+        //     doError(errorObj.message);
+        // }
     };
-    useEffect(() => {
-        if (OKNewOrder) {
-            setNombre("");
-            setApellido("");
-            setEmail("");
-            setEmailConfirmacion("");
-            setFono("");
-            setIdNewOrder("");
-            doError("");
-        }
-    }, [OKNewOrder]);
+    // useEffect(() => {
+    //     if (OKNewOrder) {
+    //         clearCart();
+    //         setNombre("");
+    //         setApellido("");
+    //         setEmail("");
+    //         setEmailConfirmacion("");
+    //         setFono("");
+    //         // setIdNewOrder("");
+    //         doError("");
+    //     }
+    // }, [OKNewOrder]);
 
     return (
         <>
@@ -144,7 +175,7 @@ const Checkout = () => {
                 <div className="contacto__item contacto__form">
                     <form
                         id="frmOrdenCompra"
-                        onSubmit={() => doCheckout(event)}
+                        onSubmit={(e) => {e.preventDefault();}}
                     >
                         {/* 1ra linea */}
                         <div className="contacto__linea">
@@ -204,13 +235,13 @@ const Checkout = () => {
                         {/* hacer checkout */}
                         <div className="contacto__linea">
                             <div className="contacto__linea_control">
-                                {!hayError() && (
+
                                     <button
                                         id="btnCheckout"
                                         name="btnCheckout"
                                         className="contacto__linea_control_input"
-                                        onClick={() => {
-                                            doSubmit();
+                                        onClick={(e) => {
+                                            doSubmit(e);
                                         }}
                                     >
                                         Realizar Compra{" "}
@@ -219,19 +250,21 @@ const Checkout = () => {
                                             aria-hidden="true"
                                         ></i>
                                     </button>
-                                )}
+
                             </div>
                         </div>
                         {/*fin hacer checkout */}
+
                         {/* hacer checkout */}
                         {hayError() && (
                             <div className="contacto__linea">
                                 <div className="alert-box alert-box--error">
+                                    <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                     {getError()}
                                 </div>
                             </div>
                         )}
-                        {OKNewOrder && (
+                        {isOrderSave() && (
                             <div className="contacto__linea">
                                 <div className="alert-box alert-box--success">
                                     <i
